@@ -4,7 +4,9 @@ project(untitled)
 set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
+set(SDL2_PATH "C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32")
+
 
 find_package(SDL2 REQUIRED)
 

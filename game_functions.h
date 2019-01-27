@@ -62,9 +62,8 @@ int game_menu()
                     apply_surface(0,0,menu,screen);
                 }
 
-                SDL_RenderClear(renderer);
-                SDL_RenderPresent(renderer);
-                // SDL_Flip(screen);                               ///UPDATES THE SCREEN
+                SDL_UpdateWindowSurface(window);
+                ///UPDATES THE SCREEN
             }
             if(mouse_event.type == SDL_MOUSEBUTTONDOWN)             /// mouse press
             {
@@ -126,53 +125,6 @@ int game_menu()
 //    SDL_FreeSurface(message);
 //
 //}
-SDL_Surface *load_image( std::string filename,int n=0 )         ///FUNCTION FOR LOADING IMAGE
-{
-    ///The image that's loaded
-    SDL_Surface* loadedImage = NULL;
-
-    ///The optimized surface that will be used
-    SDL_Surface* optimizedImage = NULL;
-
-    ///Load the image
-    loadedImage = IMG_Load( filename.c_str() );
-
-    ///If the image loaded
-    if( loadedImage != NULL )
-    {
-        ///Create an optimized surface
-        optimizedImage = SDL_DisplayFormat( loadedImage );
-
-        ///Free the old surface
-        SDL_FreeSurface( loadedImage );
-
-        ///If the surface was optimized
-        if( optimizedImage != NULL )
-        {
-            if(n==0)
-            {
-
-                ///Map the color key
-                Uint32 colorkey = SDL_MapRGB( optimizedImage->format, 73, 203, 58 );
-
-                ///Set all pixels of color R 0, G 0xFF, B 0xFF to be transparent
-                SDL_SetColorKey( optimizedImage, SDL_SRCCOLORKEY, colorkey );
-            }
-            else if(n==1)
-            {
-                ///Map the color key
-                Uint32 colorkey = SDL_MapRGB( optimizedImage->format, 255, 255, 128 );
-
-                ///Set all pixels of color R 0, G 0xFF, B 0xFF to be transparent
-                SDL_SetColorKey( optimizedImage, SDL_SRCCOLORKEY, colorkey );
-            }
-
-        }
-    }
-
-    ///Return the optimized surface
-    return optimizedImage;
-}
 
 void clean_menu_surfaces()
 {

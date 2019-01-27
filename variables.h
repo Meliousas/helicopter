@@ -6,8 +6,8 @@
 /// global pointers
 SDL_Surface *game_over=NULL;
 SDL_Surface *background = NULL;
-SDL_Surface *OBSTACLES= NULL;
-SDL_Window *screen = NULL;
+SDL_Surface *screen = NULL;
+SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
 SDL_Surface *welcome=NULL;
 

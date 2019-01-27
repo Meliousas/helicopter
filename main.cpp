@@ -13,7 +13,6 @@ int main(int argc, char* args[])
 
     if(!init()) { return 1; }
 
-   // Window my;
     int opt;
     SDL_Delay(2000);
 
